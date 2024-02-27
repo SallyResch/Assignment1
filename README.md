@@ -1,6 +1,6 @@
 # Assignment1
-1. Vilka klasser bör ingå i programmet?
-	- Klassen Employee
-2. Vilka attribut och metoder bör ingå i dessa klasser?
-	- Attributen employeeName och employeeSalary behövs.
-	- En metod för att lägga till en anställd
+1. Which classes should be included in the program?
+- The Employee class
+2. What attributes and methods should be included in these classes?
+- The attributes employeeName and employeeSalary are needed.
+- A method to add an employee
