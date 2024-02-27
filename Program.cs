@@ -5,45 +5,58 @@ namespace Assignment1
 {
     internal class Program
     {
+
+        static List<Employee> employees = new List<Employee>();
+
         static void Main(string[] args)
         {
-            List<Employee> employees = new List<Employee>();
-
             Console.WriteLine("Choose an option: ");
             Console.WriteLine("1. Add Employee ");
             Console.WriteLine("2. Show Registered employees ");
             Console.WriteLine("3. Exit program ");
 
-            string option = Console.ReadLine();
-            int choice = int.Parse(option);
-
-            if (choice == 1)
+            while (true)
             {
-                Console.WriteLine("Add the name of the employee: ");
-                string name = Console.ReadLine();
-                Console.WriteLine("Add the salary of the employee: ");
-                double salary = double.Parse(Console.ReadLine());
-                Employee newEmployee = new Employee(name, salary);
-                employees.Add(newEmployee);
-                Console.WriteLine("Employee added to list");
+                string option = Console.ReadLine();
+                int choice = int.Parse(option);
 
-            }
-            else if (choice == 2)
-            {
-                Console.WriteLine("Registered Employees List: ");
-                foreach (var employee in employees)
+                switch (choice)
                 {
-                    Console.WriteLine($"Name: {employee.Name}, Salary: {employee.Salary}");
+                    case 1:
+                        AddEmployee();
+                        break;
+                    case 2:
+                        ShowEmployees();
+                        break;
+                    case 3:
+                        Console.WriteLine("You exited the program");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid option. Please choose a valid option.");
+                        break;
                 }
             }
-            else if (choice == 3)
+        }
+
+ 
+        static void AddEmployee()
+        {
+            Console.WriteLine("Add the name of the employee: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Add the salary of the employee: ");
+            double salary = double.Parse(Console.ReadLine());
+            Employee newEmployee = new Employee(name, salary);
+            employees.Add(newEmployee);
+            Console.WriteLine("Employee added to list");
+        }
+
+
+        static void ShowEmployees()
+        {
+            Console.WriteLine("Registered Employees List: ");
+            foreach (var employee in employees)
             {
-                Console.WriteLine("You exited the program");
-                return;
-            }
-            else 
-            {
-                Console.WriteLine("Invalid option. Please choose a valid option.");
+                Console.WriteLine($"Name: {employee.Name}, Salary: {employee.Salary}");
             }
         }
     }
@@ -60,4 +73,5 @@ namespace Assignment1
         }
     }
 }
+
 
